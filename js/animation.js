@@ -66,26 +66,4 @@ Animation.prototype = {
             this._canvas.restore();
         }
     },
-
-    _drawScore: function() {
-        var x = game.currentScore;
-        var w = 0;
-        var scoreX;
-        if (x == 0) {
-            this._canvas.drawImage(ImageManager.getImage("0"), (Data.animation.SCREEN_WIDTH - Data.animation.SCORE_WIDTH) / 2, Data.animation.SCORE_Y);
-        } else {
-            while (x > 0) {
-                w += Data.animation.SCORE_WIDTH + Data.animation.SCORE_SPACE;
-                x = Math.floor(x / 10);
-            }
-            w -= Data.animation.SCORE_SPACE;
-            x = game.currentScore;
-            scoreX = (Data.animation.SCREEN_WIDTH + w) / 2 - Data.animation.SCORE_WIDTH;
-            while (x > 0) {
-                this._canvas.drawImage(ImageManager.getImage(x % 10), scoreX, Data.animation.SCORE_Y);
-                scoreX -= Data.animation.SCORE_WIDTH + Data.animation.SCORE_SPACE;
-                x = Math.floor(x / 10);
-            }
-        }
-    }
 }
